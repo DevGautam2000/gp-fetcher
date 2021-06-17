@@ -53,7 +53,7 @@ ___
 # Author
 ## Gautam Chandra Saha
 
-- &copy; 2021 Gautam Chandra Saha
+2021 &copy; Gautam Chandra Saha
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
