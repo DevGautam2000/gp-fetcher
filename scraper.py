@@ -119,15 +119,19 @@ def scrape(_username):
 
     projectInfo['FORKED'] = forked
 
+    if len(projectInfo) == 1 and len(projectInfo['FORKED'])==0:
+        return "Username does not exist"
+
     _json = open(f"{_username}-projects.json",'w')
     _json.write(json.dumps(projectInfo))
     _json.close()
+    return f"Done! checkout your {_username}-projects.json file at the root of this directory"
 
     
 
 if __name__ == '__main__':
     username = input("Enter github username: ")
-    scrape(username)
-    print(f"Done! checkout your {username}-projects.json file at the root of this directory")
+    success = scrape(username)
+    print(success)
 
 
