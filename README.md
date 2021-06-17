@@ -3,6 +3,7 @@
 - This a tool to fetch your github project details so that your time for writing an API is saved.
 - Simple to use tool made in Python with bs4(Beautiful Soup)
 
+### If you want to skip the documentation section then checkout the video [here](https://youtu.be/ixFnCXu9r6Q)
 
 ## Documentation
 
