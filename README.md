@@ -3,7 +3,7 @@
 - This a tool to fetch your github project details so that your time for writing an API is saved.
 - Simple to use tool made in Python with bs4(Beautiful Soup)
 
-## Link to the package: [pypi.org/project/gpfetcher/0.2/](https://pypi.org/project/gpfetcher/0.2/)
+## Link to the package: [pypi.org/project/gpfetcher](https://pypi.org/project/gpfetcher/)
 
 ## Documentation
 
