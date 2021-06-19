@@ -3,51 +3,51 @@
 - This a tool to fetch your github project details so that your time for writing an API is saved.
 - Simple to use tool made in Python with bs4(Beautiful Soup)
 
-### If you want to skip the documentation section then checkout the video [here](https://youtu.be/ixFnCXu9r6Q)
+## Link to the package: [pypi.org/project/gpfetcher/0.2/](https://pypi.org/project/gpfetcher/0.2/)
 
 ## Documentation
 
-
-- First clone this repo to your machine
 
 *Assuming python and pip installed on your system*
 
 - *Checkout resources to install [python](https://www.python.org/downloads/) and [pip](https://packaging.python.org/tutorials/installing-packages/) if not installed*
 
 ___
-#### Installing the requirements is necessary for the code to run
+#### Installing the package gpfetcher
 
-- Into the root of this project run the following code
-```python
+For linux and mac
+```bash
 
-pip3 install -r requirements.txt for linux and mac
-pip install -r requirements.txt for windows
-
+pip3 install gpfetcher==0.2
 ```
 
-- Then run the python file by using the commands below  
 
-```bash 
-python3 scrape.py   for linux and mac
-python scrape.py for windows
+For windows
+```bash
+pip install gpfetcher==0.2 
 ```
 
-- You will be prompted to enter details on terminal
+
+- Then use the package in your python file as shown below 
+
+## Usage
+
 ```python
-  Enter your username: #enter the github user name here
+from gpfetcher import scraper
+
+if __name__ == "__main__":
+    username = "< github userrname here >"
+    scraper.scrape(username)
 ```
 
-- After you get the message below check your root for this project and your file must be generated over there as a json file that can be used in your projects
+- After you get the message below, check your root where your .py file is , a json file is generated that can be used in your projects
 
-```python
+```bash
   Done! checkout your {github-username-here}-projects.json file at the root of this project directory
 ```
-___
-## You are done!
+##### You are done!
 
-```text
-go ahead and use this json to parse in your project 
-```
+*go ahead and use this json to parse in your project*
 
 ___
 # Author
