@@ -130,6 +130,9 @@ def scrape(_username):
     projectInfo = {}
     global forked
     forked = {}
+
+    print(f"Hello {_username}\n")
+
     fileName = f"{_username}-projects"
     first_url = f"https://github.com/{_username}?tab=repositories"
     
@@ -149,10 +152,4 @@ def scrape(_username):
     return f"Done! checkout your {_username}-projects.json file at the root of this directory"
 
     
-
-if __name__ == '__main__':
-    username = input("Enter github username: ")
-    success = scrape(username)
-    print(success)
-
 
