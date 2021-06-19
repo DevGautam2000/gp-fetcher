@@ -167,5 +167,3 @@ def scrape(_username):
     print(f"Done! checkout your {_username}-projects.json file at the root of this directory")
     return
 
-
-scrape("devgautam2000")
