@@ -12,23 +12,26 @@ errors = []
 
 session = requests.Session()  # create a session
 
-def saveAsForked(name, src, about, tech_stacks, license_, from_):
+def saveAsForked(name, src, about, tech_stacks, license_, from_,stars):
     forked[name] = {
         "src": src,
         "about": about,
-        "tech-stack": tech_stacks,
+        "tech_stack": tech_stacks,
         "license": license_,
-        "from": from_
+        "from": from_,
+        "stars": stars,
 
     }
 
 
-def save(name, src, about, tech_stacks, license_):
+def save(name, src, about, tech_stacks, license_,stars,forked_by):
     projectInfo[name] = {
         "src": src,
         "about": about,
-        "tech-stack": tech_stacks,
-        "license": license_
+        "tech_stack": tech_stacks,
+        "license": license_,
+        "stars": stars,
+        "forked_by": forked_by,
 
     }
 
@@ -48,6 +51,8 @@ def handle_pagination(username, url):
             name = ""
             about = ""
             from_ = ""
+            stars = ""
+            forked_by = ""
             src = f"https://github.com/{li.a['href']}"
 
             # if li.a.text.strip() != username:
@@ -64,6 +69,16 @@ def handle_pagination(username, url):
             try:
                 tech_stacks.append(inner_soup.find(
                     attrs={"itemprop": "programmingLanguage"}).text.strip())
+            except Exception as e:
+                errors.append(e)
+            try:
+                stars = inner_soup.find(
+                    attrs={"href": f"/{username}/{name}/stargazers"}).text.strip()
+            except Exception as e:
+                errors.append(e)
+            try:
+                forked_by = inner_soup.find(
+                    attrs={"href": f"/{username}/{name}/network/members"}).text.strip()
             except Exception as e:
                 errors.append(e)
             try:
@@ -90,13 +105,13 @@ def handle_pagination(username, url):
             try:
                 if "Forked" in li.span.text.strip() or li.span.text.strip() == "Template":
                     saveAsForked(name, src, about,
-                                 tech_stacks, license_, from_)
+                                 tech_stacks, license_, from_,stars)
                 else:
-                    save(name, src, about, tech_stacks, license_)
+                    save(name, src, about, tech_stacks, license_,stars,forked_by)
 
             except Exception as e:
                 errors.append(e)
-                save(name, src, about, tech_stacks, license_)
+                save(name, src, about, tech_stacks, license_,stars,forked_by)
            
     try:
         if soup.find(attrs={"data-test-selector": "pagination"}):
@@ -111,11 +126,12 @@ def handle_pagination(username, url):
     except Exception as e:
         errors.append(e)
 
-def loader(url):
+def loader(url,username):
     try:
         response = session.get(url, headers=headers)
         soup = BeautifulSoup(response.content, "lxml")
         total_projects = soup.find("a",class_= "UnderlineNav-item selected").select('span')[0].text.strip()
+        print(f"Hello {username}\n")
 
         print(f"{total_projects} repositories found.")
         print(f"NOTE: The private repositories will not be fetched.")
@@ -131,25 +147,22 @@ def scrape(_username):
     global forked
     forked = {}
 
-    print(f"Hello {_username}\n")
-
     fileName = f"{_username}-projects"
     first_url = f"https://github.com/{_username}?tab=repositories"
     
     p1 = threading.Thread(target=handle_pagination, args=[_username, first_url])
     p1.start()                                                       
 
-    loader(first_url)                                                 
+    loader(first_url,_username)                                                 
 
     projectInfo['FORKED'] = forked
 
     if len(projectInfo) == 1 and len(projectInfo['FORKED'])==0:
-        return "Username does not exist"
+         print("Username does not exist")
+         return
 
     _json = open(f"{_username}-projects.json",'w',encoding="utf-8")
     _json.write(json.dumps(projectInfo))
     _json.close()
-    return f"Done! checkout your {_username}-projects.json file at the root of this directory"
-
-    
-
+    print(f"Done! checkout your {_username}-projects.json file at the root of this directory")
+    return
