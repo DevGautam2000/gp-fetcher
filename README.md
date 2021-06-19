@@ -18,13 +18,13 @@ ___
 For linux and mac
 ```bash
 
-pip3 install gpfetcher==0.2
+pip3 install gpfetcher
 ```
 
 
 For windows
 ```bash
-pip install gpfetcher==0.2 
+pip install gpfetcher 
 ```
 
 
