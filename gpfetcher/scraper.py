@@ -41,8 +41,11 @@ def handle_pagination(username, url):
     response = session.get(url, headers=headers)
     soup = BeautifulSoup(response.content, "lxml")\
 
-        
-    username = soup.find(attrs={"itemprop": "additionalName"}).text.strip()
+    try:
+        username = soup.find(attrs={"itemprop": "additionalName"}).text.strip()
+          
+    except Exception as e:
+        errors.append(e)
 
     
     for div in soup.findAll("div", id="user-repositories-list"):
