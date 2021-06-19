@@ -166,3 +166,6 @@ def scrape(_username):
     _json.close()
     print(f"Done! checkout your {_username}-projects.json file at the root of this directory")
     return
+
+
+scrape("devgautam2000")

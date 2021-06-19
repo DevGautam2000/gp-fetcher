@@ -56,35 +56,62 @@ if __name__ == "__main__":
 {
     "gp-fetcher": {
         "src": "https://github.com//DevGautam2000/gp-fetcher",
-        "about": "You don't want to spend a lot of time just writing a block of code for fetching your projects from github. So, go ahead and use this python package to make your life easier",
-        "tech-stack": [
+        "about": "You don't want to spend a lot of time just writing a block of code for fetching your projects from github. 
+        So, go ahead and use this python package to make your life easier",
+        "tech_stack": [
             "Python"
         ],
-        "license": "MIT License"
+        "license": "MIT License",
+        "stars": "",
+        "forked_by": ""
     },
     "infoScraper": {
         "src": "https://github.com//DevGautam2000/infoScraper",
         "about": "Scraper written in Python using bs4 to scrape results from SMIT results",
-        "tech-stack": [
+        "tech_stack": [
             "Python"
         ],
-        "license": "MIT License"
+        "license": "MIT License",
+        "stars": "",
+        "forked_by": ""
     },
     "results-web": {
         "src": "https://github.com//DevGautam2000/results-web",
         "about": "The web app for Results",
-        "tech-stack": [
+        "tech_stack": [
             "JavaScript"
         ],
-        "license": ""
+        "license": "",
+        "stars": "",
+        "forked_by": ""
     },
     "results.github.io": {
         "src": "https://github.com//DevGautam2000/results.github.io",
         "about": "",
-        "tech-stack": [
+        "tech_stack": [
             "Python"
         ],
-        "license": ""
+        "license": "",
+        "stars": "",
+        "forked_by": ""
+    },
+    "resume": {
+        "src": "https://github.com//DevGautam2000/resume",
+        "about": "",
+        "tech_stack": [
+            "JavaScript"
+        ],
+        "license": "",
+        "stars": "",
+        "forked_by": ""
+    },
+    "DevGautam2000": {
+        "src": "https://github.com//DevGautam2000/DevGautam2000",
+        "about": "Config files for my GitHub profile.",
+        "tech_stack": [],
+        "license": "",
+        "stars": "",
+        "forked_by": ""
     },
 ```
 
@@ -92,26 +119,28 @@ if __name__ == "__main__":
 
 ```json
 
-    "license": ""
+       "forked_by": ""
     },
     "FORKED": {
         "Making-Musical-Apps": {
             "src": "https://github.com//DevGautam2000/Making-Musical-Apps",
             "about": "Resources for the O'Reilly book \"Making Musical Apps\"",
-            "tech-stack": [
+            "tech_stack": [
                 "Pure Data"
             ],
             "license": "",
-            "from": "Forked from nettoyeurny/Making-Musical-Apps"
+            "from": "Forked from nettoyeurny/Making-Musical-Apps",
+            "stars": ""
         },
         "Simple-Guitar-Tuner": {
             "src": "https://github.com//DevGautam2000/Simple-Guitar-Tuner",
             "about": "Android app",
-            "tech-stack": [
+            "tech_stack": [
                 "Java"
             ],
             "license": "",
-            "from": "Forked from siemanko/Simple-Guitar-Tuner"
+            "from": "Forked from siemanko/Simple-Guitar-Tuner",
+            "stars": ""
         }
     }
 }
