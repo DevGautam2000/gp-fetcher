@@ -39,7 +39,10 @@ def handle_pagination(username, url):
     
     
     response = session.get(url, headers=headers)
-    soup = BeautifulSoup(response.content, "lxml")
+    soup = BeautifulSoup(response.content, "lxml")\
+
+        
+    username = soup.find(attrs={"itemprop": "additionalName"}).text.strip()
 
     
     for div in soup.findAll("div", id="user-repositories-list"):
@@ -72,13 +75,13 @@ def handle_pagination(username, url):
             except Exception as e:
                 errors.append(e)
             try:
-                stars = inner_soup.find(
-                    attrs={"href": f"/{username}/{name}/stargazers"}).text.strip()
+                stars = inner_soup.find(attrs={"href": f"/{username}/{name}/stargazers"}).text.strip()
+
             except Exception as e:
                 errors.append(e)
             try:
-                forked_by = inner_soup.find(
-                    attrs={"href": f"/{username}/{name}/network/members"}).text.strip()
+                forked_by = inner_soup.find(attrs={"href": f"/{username}/{name}/network/members"}).text.strip()
+
             except Exception as e:
                 errors.append(e)
             try:
@@ -134,8 +137,8 @@ def loader(url,username):
         print(f"Hello {username}\n")
 
         print(f"{total_projects} repositories found.")
-        print(f"NOTE: The private repositories will not be fetched.")
-        print(" ")
+        print(f"NOTE: The private repositories will not be fetched.\n")
+        
         for i in tqdm(range(int(total_projects))):
             time.sleep(0.2)
     except Exception as e:
@@ -166,4 +169,3 @@ def scrape(_username):
     _json.close()
     print(f"Done! checkout your {_username}-projects.json file at the root of this directory")
     return
-
