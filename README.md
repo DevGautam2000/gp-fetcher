@@ -5,6 +5,8 @@
 
 ## Link to the package: [pypi.org/project/gpfetcher](https://pypi.org/project/gpfetcher/)
 
+# Only if you want to skip the documentation then checkout this video [here](https://www.youtube.com/watch?v=xC6f_aGi8m0)
+
 ## Documentation
 
 
