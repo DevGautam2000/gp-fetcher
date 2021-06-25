@@ -38,7 +38,7 @@ pip install gpfetcher
 from gpfetcher import scraper
 
 if __name__ == "__main__":
-    username = "< github userrname here >"
+    username = "< github username here >"
     scraper.scrape(username)
 ```
 
