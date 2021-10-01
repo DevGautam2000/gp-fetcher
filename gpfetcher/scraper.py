@@ -97,25 +97,25 @@ def handle_pagination(username, url):
                         license_ = li.select('span')[len(
                             li.select('span')) - 1].text.strip()
 
-                    if "Template" == li.span.text.strip():
-                        license_ = li.select("span")[5].text.strip()
+                    # if "Template" == li.span.text.strip():
+                    #     license_ = li.select("span")[5].text.strip()
 
                 except Exception as e:
                     errors.append(e)
                 try:
 
-                    if "Forked" in li.div.div.findAll("span")[1].text.strip():
-                        from_ = li.div.div.findAll("span")[1].text.strip()
+                    if "Forked" in li.div.div.findAll("span")[2].text.strip():
+                        from_ = li.div.div.findAll("span")[2].text.strip()
 
-                    if "Template" == li.span.text.strip():
-                        from_ = li.select("span")[1].text.strip()
+                    # if "Template" == li.span.text.strip():
+                    #     from_ = li.select("span")[1].text.strip()
 
                 except Exception as e:
                     errors.append(e)
 
                 try:
 
-                    if "Forked" in li.div.div.findAll("span")[1].text.strip():
+                    if "Forked" in li.div.div.findAll("span")[2].text.strip():
                         saveAsForked(name, src, about,
                                      tech_stacks, license_, from_, stars)
                     else:
