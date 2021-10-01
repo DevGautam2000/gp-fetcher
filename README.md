@@ -3,6 +3,9 @@
 - This a tool to fetch your github project details so that your time for writing an API is saved.
 - Simple to use tool made in Python with bs4(Beautiful Soup)
 
+### Supports Apple Silicon Macs
+#### Install the latest version i.e. 0.8.2 to get full support
+
 ## Link to the package: [pypi.org/project/gpfetcher](https://pypi.org/project/gpfetcher/)
 
 # Only if you want to skip the documentation then checkout this video [here](https://www.youtube.com/watch?v=xC6f_aGi8m0)
