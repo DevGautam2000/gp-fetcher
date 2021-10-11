@@ -5,7 +5,7 @@
 
 ### Supports Apple Silicon Macs
 
-#### Install the latest version i.e. 0.8.2 to get full support
+#### Install the latest version to get full support
 
 ## Link to the package: [pypi.org/project/gpfetcher](https://pypi.org/project/gpfetcher/)
 
