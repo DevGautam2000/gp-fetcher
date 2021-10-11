@@ -1,9 +1,10 @@
-# Github Projects Fetcher  (gp-fetcher)
+# Github Projects Fetcher (gp-fetcher)
 
 - This a tool to fetch your github project details so that your time for writing an API is saved.
 - Simple to use tool made in Python with bs4(Beautiful Soup)
 
 ### Supports Apple Silicon Macs
+
 #### Install the latest version i.e. 0.8.2 to get full support
 
 ## Link to the package: [pypi.org/project/gpfetcher](https://pypi.org/project/gpfetcher/)
@@ -12,28 +13,28 @@
 
 ## Documentation
 
+_Assuming python and pip installed on your system_
 
-*Assuming python and pip installed on your system*
+- _Checkout resources to install [python](https://www.python.org/downloads/) and [pip](https://packaging.python.org/tutorials/installing-packages/) if not installed_
 
-- *Checkout resources to install [python](https://www.python.org/downloads/) and [pip](https://packaging.python.org/tutorials/installing-packages/) if not installed*
+---
 
-___
 #### Installing the package gpfetcher
 
 For linux and mac
+
 ```bash
 
 pip3 install gpfetcher
 ```
 
-
 For windows
+
 ```bash
-pip install gpfetcher 
+pip install gpfetcher
 ```
 
-
-- Then use the package in your python file as shown below 
+- Then use the package in your python file as shown below
 
 ## Usage
 
@@ -50,10 +51,10 @@ if __name__ == "__main__":
 ```bash
   Done! checkout your {github-username-here}-projects.json file at the root of this project directory
 ```
+
 ##### You are done!
 
-*go ahead and use this json to parse in your project*
-
+_go ahead and use this json to parse in your project_
 
 ## Sample Output
 
@@ -61,7 +62,7 @@ if __name__ == "__main__":
 {
     "gp-fetcher": {
         "src": "https://github.com//DevGautam2000/gp-fetcher",
-        "about": "You don't want to spend a lot of time just writing a block of code for fetching your projects from github. 
+        "about": "You don't want to spend a lot of time just writing a block of code for fetching your projects from github.
         So, go ahead and use this python package to make your life easier",
         "tech_stack": [
             "Python"
@@ -152,13 +153,14 @@ if __name__ == "__main__":
 
 ```
 
-___
+---
+
 # Author
+
 ## Gautam Chandra Saha
 
 2021 &copy; Gautam Chandra Saha
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
-  

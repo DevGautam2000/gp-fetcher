@@ -42,6 +42,7 @@ def handle_pagination(username, url):
 
     try:
         response = session.get(url, headers=headers)
+
         soup = BeautifulSoup(response.content, "lxml")
 
         try:
@@ -167,7 +168,7 @@ def scrape(_username):
     global forked
     forked = {}
 
-    fileName = f"{_username}-projects"
+    fileName = f"{_username}-projects.json"
     first_url = f"https://github.com/{_username}?tab=repositories"
 
     p1 = threading.Thread(target=handle_pagination,
@@ -182,12 +183,12 @@ def scrape(_username):
         if err_msg_network in errors:
             print("\n", err_msg_network.upper(), "\n")
             return
-        print("Username does not exist")
+        print("Note: Check for the conditions below-\n\n1. Username does not exist.\n2. Username is of an organization.\n\n")
         return
 
-    _json = open(f"{_username}-projects.json", 'w', encoding="utf-8")
+    _json = open(fileName, 'w', encoding="utf-8")
     _json.write(json.dumps(projectInfo))
     _json.close()
     print(
-        f"Done! checkout your {_username}-projects.json file at the root of this directory")
+        f"Done! checkout your {_username}-projects.json file at the root of this directory\n")
     return
