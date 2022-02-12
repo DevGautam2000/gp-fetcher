@@ -6,13 +6,13 @@ import time
 import threading
 
 headers = {
-    "user-agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Mobile Safari/537.366"
+    "user-agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Mobile Safari/537.36"
 }
+
 errors = []
 err_msg_network = "Make Sure You Have An Internet Connection."
 
 session = requests.Session()  # create a session
-
 
 def saveAsForked(name, src, about, tech_stacks, license_, from_, stars):
     forked[name] = {
@@ -42,7 +42,6 @@ def handle_pagination(username, url):
 
     try:
         response = session.get(url, headers=headers)
-
         soup = BeautifulSoup(response.content, "lxml")
 
         try:
@@ -140,7 +139,7 @@ def handle_pagination(username, url):
                 handle_pagination(username, url)
         except Exception as e:
             errors.append(e)
-    except:
+    except Exception as e:
         errors.append(err_msg_network)
         exit(0)
 
@@ -149,8 +148,9 @@ def loader(url, username):
     try:
         response = session.get(url, headers=headers)
         soup = BeautifulSoup(response.content, "lxml")
+        # print(soup)
         total_projects = soup.find(
-            "a", class_="UnderlineNav-item selected").select('span')[0].text.strip()
+            "span", class_="Counter").text.strip()
         print(f"Hello {username}\n")
 
         print(f"{total_projects} repositories found.")
@@ -159,6 +159,7 @@ def loader(url, username):
         for i in tqdm(range(int(total_projects))):
             time.sleep(0.2)
     except Exception as e:
+        print(e)
         errors.append(e)
 
 
