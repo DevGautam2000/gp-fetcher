@@ -1,5 +1,7 @@
 # Github Projects Fetcher (gp-fetcher)
 
+## NOTE:  This project is no longer being maintained
+
 - This a tool to fetch your github project details so that your time for writing an API is saved.
 - Simple to use tool made in Python with bs4(Beautiful Soup)
 
