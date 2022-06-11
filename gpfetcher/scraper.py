@@ -14,6 +14,7 @@ err_msg_network = "Make Sure You Have An Internet Connection."
 
 session = requests.Session()  # create a session
 
+
 def saveAsForked(name, src, about, tech_stacks, license_, from_, stars):
     forked[name] = {
         "src": src,
@@ -128,15 +129,22 @@ def handle_pagination(username, url):
                          license_, stars, forked_by)
 
         try:
-            if soup.find(attrs={"data-test-selector": "pagination"}):
-                div = soup.find(
-                    attrs={"data-test-selector": "pagination"}).select("a")
+            # if soup.find(attrs={"data-test-selector": "pagination"}):
+            #     div = soup.find(
+            #         attrs={"data-test-selector": "pagination"}).select("a")
 
-                for a in div:
-                    if a.text == "Next":
-                        url = a['href']
+            #     for a in div:
+            #         if a.text == "Next":
+            #             url = a['href']
+            #     errors.clear()
+            #     handle_pagination(username, url)
+            if soup.find('a', {"class": "next_page"}):
+                a = soup.find('a', {"class": "next_page"})
+                if a.text == "Next":
+                    url = "https://github.com"+a['href']
                 errors.clear()
                 handle_pagination(username, url)
+
         except Exception as e:
             errors.append(e)
     except Exception as e:
@@ -159,7 +167,6 @@ def loader(url, username):
         for i in tqdm(range(int(total_projects))):
             time.sleep(0.2)
     except Exception as e:
-        print(e)
         errors.append(e)
 
 

@@ -2,3 +2,5 @@
 /dist
 /gpfetcher.egg-info
 /commands
+run.py
+check.js
